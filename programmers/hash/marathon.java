@@ -15,8 +15,7 @@ public class marathon {
         for (String name: participant) {
             if (hash.containsKey(name)) {
                 Integer num = hash.get(name);
-                num++;
-                hash.put(name, num);
+                hash.put(name, ++num);
             } else {
                 hash.put(name, 1);
             }
@@ -26,7 +25,7 @@ public class marathon {
             if (Objects.equals(value, 1)) {
                 hash.remove(name);
             } else if (value > 1) {
-                value--;
+                hash.put(name, --value);
             }
         }
         String[] key = hash.keySet().toArray(new String[0]);
@@ -35,7 +34,7 @@ public class marathon {
         else
             return null;
     }
-    public static void main() {
+    public static void main(String[] args) {
         String[] participant1 = {"leo", "kiki", "eden"};
         String[] participant2 = {"marina", "josipa", "nikola", "vinko", "filipa"};
         String[] participant3 = {"mislav", "stanko", "mislav", "ana"};
